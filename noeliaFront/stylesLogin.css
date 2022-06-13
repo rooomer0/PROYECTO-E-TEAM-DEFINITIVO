@@ -1,0 +1,71 @@
+@font-face {
+    font-family: 'Abolition';
+    src: url('font/FontsFree-Net-Abolition-W00-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+  }
+html, body, .container-fluid {
+    height: 100%;
+    }
+ 
+.bg-primary{
+    background-color: #794296 !important; 
+}
+.color-primary{
+    color:#794296;
+}
+a{
+    color: #794296;
+    text-decoration:none;
+}
+.circulo {
+    height: 100%;
+
+    border-radius: 0 0  100% ; 
+    background-color: #ffffff;
+}
+.eslogan{
+    font-family:'Abolition';
+    font-size:450%;
+    margin-top: 35%;
+    margin-left: 20%;
+}
+.esloganGamer{
+    font-size: 300%;
+    line-height:80%;
+    
+}
+.contenedorFormulario{
+    margin-top: 10%;
+    width: 30%;
+    padding: 0;
+    height: 65%;
+}
+.formularioInicio{
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.input {
+    text-align: center;
+    padding: 3% 20%;
+    margin-top:3%;
+    margin-bottom:3%;
+    display: inline-block;
+}
+.boton{
+    border:0;
+    color:#ffffff;
+    padding:3% 15%;
+    margin: 10%;
+}
+.negrita{
+    font-weight: bold;  
+}
+
+.formarParte{
+    font-family:'Abolition';
+    font-size:300%;
+}

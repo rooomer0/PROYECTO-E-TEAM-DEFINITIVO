@@ -1,0 +1,754 @@
+/* variables globales */
+html,body{
+    font-size: 16px;
+    height: auto;
+}
+
+:root {
+    --morado-oscuro: #794296;
+    --morado-claro: #E4D9EA;
+    --blanco-oscuro: #E6E6E6;
+    --logo-width: 8rem;
+    --logo-height: 8rem;
+    --icono-sm-width: 1rem;
+    --icono-sm-height: 1rem;
+    --icono-md-width: 15rem;
+    --icono-md-height: 15rem;
+    --icono-xs-size: 1.2rem;
+    --icono-sm-size: 1.5rem;
+    --icono-md-size: 1.7rem;
+  }
+
+/* LAYOUT */
+
+img{
+    width: 100%;
+    height: 100%;
+}
+
+.container-fluid{
+    padding-left: 0;
+    padding-right: 0;
+    background-color: var(--blanco-oscuro);
+    height:auto;
+}
+
+.cabecera{
+    width: 100%;
+    height:7rem;
+    background-color: #ffffff;
+    position: fixed;
+    border-bottom: 1px solid black;
+    z-index: 2;
+}
+
+.cabecera-flotante{
+    width: 100%;
+    height:10rem;
+    z-index: 2;
+}
+
+.cuerpo{
+    width: auto;
+    height: 75%;
+    margin-left: 12%;
+    margin-right: 12%;
+    background-color: none;
+}
+
+.logo-eteam img{
+    width: 100%;
+    height: 100%;
+    border-radius: 0.25rem;
+    z-index: 2;
+}
+
+.logo-eteam{
+    border-radius: 0.25rem;
+    display: inline-block;
+    width: var(--logo-width);
+    height: var(--logo-height);
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+.logo-home{
+    position: absolute;
+    top: 50%;
+    right: 29%;
+}
+
+.logo-people{
+    position: absolute;
+    top: 50%;
+    right: 25%;
+}
+
+.logo-messages{
+    position: absolute;
+    top: 50%;
+    right: 21%;
+}
+
+.logo-noti{
+    position: absolute;
+    top: 50%;
+    right: 17%;
+}
+
+.logo-profile{
+    position: absolute;
+    top: 50%;
+    right: 13%;
+}
+
+.icono-xs{
+    font-size: var(--icono-xs-size);
+    border: none;
+}
+
+.icono-sm{
+    font-size: var(--icono-sm-size);
+    border: none;
+}
+
+.icono-md{
+    font-size: var(--icono-md-size);
+    border: none;
+}
+
+.img-sm{
+    width: var(--icono-sm-width);
+    height: var(--icono-sm-height);
+    border: none;
+}
+
+.img-md{
+    width:s var(--icono-md-width);
+    height: var(--icono-md-height);
+    border: none;
+}
+
+.imagen100por100{
+    width: 100%;
+    height: 100%;
+}
+
+.borde{
+    border: 1px solid black;
+}
+
+/* BARRA BUSQUEDA */
+
+.busqueda-barra{
+    border: 1px solid black;
+    width: 11%;
+    margin-left: 6%;
+    margin-top: 2.5%;
+    display: inline-block;
+    background-color: var(--morado-claro);
+    position: fixed;
+    z-index: 2;
+}
+
+.busqueda-texto{
+    width: 50%;
+    height: 60%;  
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    margin-right: 4rem;
+}
+
+.busqueda-texto:focus{
+    outline: none;
+}
+
+.busqueda-boton{
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    
+}
+
+.icono-busqueda-integrantes{
+    margin-left: 5rem;
+}
+
+#imagen-header{
+    width: 100%;
+    height: 25%;
+    border: 1px solid black;
+}
+
+.input-comun{
+    background-color: var(--blanco-oscuro);
+    border-radius: 5px;
+    border: solid black 1px;
+    padding: 3%;
+    font-size: 1rem;
+    margin-top: 1%;
+    width: 75%;
+}
+.input-comun-juegos{
+    background-color: var(--blanco-oscuro);
+    border-radius: 5px;
+    border: solid black 1px;
+    padding: 1%;
+    font-size: 1rem;
+    margin-top: 1%;
+    width: 65%;
+}
+
+.input-comun:focus{
+    outline: none;
+}
+
+.input-comun-juegos:focus{
+    outline: none;
+}
+
+.cuerpo-perfil{
+    border-radius: 10px;
+    margin-top: 1%;
+    margin-right:12%;
+    margin-left:12%;
+    padding-bottom: 2%;
+    position: inherit;
+}
+
+.tipo-perfil{
+    color: var(--morado-oscuro);
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.atributo-perfil{
+    font-size: 1.2rem;
+
+}
+
+.iconos-navegacion{
+    display: inline-block;
+    margin-left: 40%;
+}
+
+.img-cabecera{
+    width: 100%;
+    height: 20rem;
+    margin-bottom: 1.5rem;
+}  
+
+.img-perfil{
+    position: absolute;
+    top: 21rem;
+    left: 17rem;
+    width: 200px;
+    height: 200px;
+    background: rgb(243, 207, 207);
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+    border: 1px solid white;
+}
+
+.img-perfil-src{
+    width: 200px;
+    height: 200px;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+}
+
+.datos-perfil{
+    width: 100%;
+    border-radius: 10px;
+    padding-bottom: 2rem;
+    position: inherit;
+}
+
+.datos-basicos{
+    padding-top:2rem;
+    padding-left:8rem;
+}
+
+.boton-perfil{
+    background-color: var(--morado-oscuro);
+    padding: 0.6rem 1rem;
+    width: 50%;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+.boton-perfil:active{
+    border: none;
+}
+
+.boton-perfil-blanco{
+    background-color: white;
+    padding: 0.6rem 1rem;
+    width: 50%;
+    color: black;
+    border: 1px solid black;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+.boton-perfil-blanco:active{
+    border: none;
+}
+
+.boton-perfil-guardar{
+    background-color: var(--morado-oscuro);
+    padding: 0.6rem 1rem;
+    width: 50%;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.boton-perfil-guardar:active{
+    border: none;
+}
+
+.boton-morado-sm{
+    background-color: var(--morado-oscuro);
+    width: 50%;
+    margin-top: 8rem;
+    margin-left: 5rem;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.boton-morado-sm::active{
+    border: none;
+}
+
+.datos-juegos{
+    margin-top: 3rem;
+    padding-left:8rem;
+    position: inherit;
+}
+
+.datos-integrantes{
+    margin-top: 3rem;
+    padding-left:8rem;
+    position: inherit;
+}
+
+.bloque-datos{
+    border: 1px solid rgb(135, 134, 134);
+    margin-top: 1.6rem;
+    margin-left: 12rem;
+    margin-right: 20rem;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    height: 15rem;
+}
+
+.logo-datos{
+    margin-left: 3rem;
+}
+
+.img-miniatura-perfil{
+    width: 60px;
+    height: 60px;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+}
+
+.lista-integrantes{
+    padding-top: 1rem;
+    padding-left: 7rem;
+}
+
+.busqueda-integrantes{
+    border: 1px solid black;
+    width: 100%;
+    margin-left: 6%;
+    margin-top: 2.5%;
+    display: inline-block;
+    background-color: var(--morado-claro);
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.busqueda-integrantes-boton{
+    padding: 0;
+    display: inline-block;
+    margin-left: 16rem;
+    background-color: transparent;
+    border: none;
+}
+
+.busqueda-integrantes-boton:focus{
+    outline: none;
+}
+
+.dato-usuario-tablon{
+    color: var(--morado-oscuro);
+    font-size: 1.7rem;
+}
+
+.selector-perfil-ul{
+    list-style: none;
+    margin-top: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid black;
+}
+
+.selector-perfil-li{
+    display: inline-block;
+    margin-right: 15px;
+    width: 32%;
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+.selector-perfil-input{
+    visibility:hidden;
+}
+
+.selector-perfil-label{
+    cursor: pointer;
+}
+
+.selector-perfil-input:checked + .selector-perfil-label{
+    color: var(--morado-oscuro);
+}
+
+.comentario-perfil{
+    width: 100%;
+    border: none;
+}
+
+.comentario-perfil:active{
+    outline: none;
+}
+
+.comentario-perfil:focus{
+    outline: none;
+}
+
+.icono-anadir-imagen{
+    display: inline-block;
+    width: 50%;
+    margin-top: 8rem;
+}
+
+.boton-morado-comentario-sm{
+    background-color: var(--morado-oscuro);
+    width: 82%;
+    margin-top: 8rem;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.boton-morado-comentario-sm:active{
+    border: none;
+}
+
+.boton-icono{
+    border: none;
+    background-color: transparent;
+    outline:none;
+}
+
+.boton-icono:focus{
+    outline: none;
+}
+
+
+.boton-icono-borrar{
+    margin-left: 5rem;
+    margin-top: 1.5rem;
+    border: none;
+    background-color: transparent;
+    outline:none
+}
+
+.boton-icono-borrar:focus{
+    outline: none;
+}
+
+#imagen-cargada{
+    width: 150px;
+    height: 150px;
+}
+
+#boton-subir-imagen{
+    width: 25%;
+}
+
+.comentarios-contenedor{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.post{
+    margin-top: 3rem;
+    padding-right:12%;
+    padding-left: 12%;
+}
+
+.post-usuario-dato{
+    color: var(--morado-oscuro);
+    font-size: 1.7rem;
+}
+
+.img-miniatura-perfil-post{
+    width: 80px;
+    height: 80px;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+}
+
+.post-fecha-hora{
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.post-contenido{
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+
+.post-boton{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    padding: 0;
+}
+
+.foto-video-contenedor {
+    padding-top: 1rem;
+}
+
+.foto-publicacion-miniatura{
+    width: 400px;
+    height: 400px;
+    margin-top: 1rem ;
+    border: 1px solid black;
+}
+
+.foto-publicacion-miniatura-izquierda{
+    width: 400px;
+    height: 400px;
+    margin: 1rem ;
+    margin-left: 4rem ;
+    border: 1px solid black;
+}
+
+.foto-publicacion-miniatura-derecha{
+    width: 400px;
+    height: 400px;
+    margin: 1rem ;
+    margin-right: 4rem ;
+    border: 1px solid black;
+}
+
+.foto-video-contenedor > .col-md-12 > .row > .col-md-4{
+   text-align: center;
+   padding: 0;
+   padding-bottom: 1rem;
+}
+
+.eliminar-juego-perfil{
+ margin:0;
+}
+
+.barraNegra{
+    width: 100%;
+    margin-top: 3rem ;
+    margin-bottom: 3rem ;
+    border-bottom: 1px solid;
+}
+
+.desplegable-perfil{
+    position: fixed;
+    width: 20rem;
+    height: 26rem;
+    background-color: white;
+    border: 1px solid rgb(208, 208, 208);
+    border-top:1px solid black ;
+    top: 6.95rem;
+    right: 7.1rem;
+    z-index: 2;
+    display:none;
+    padding-top: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.form-datos-juego{
+    display: none;
+}
+
+.dato-usuario-tablon-miniatura{
+    
+    position: absolute;
+    color: var(--morado-oscuro);
+    font-size: 1rem;
+}
+
+.dato-usuario-tablon-miniatura-2{
+    position: absolute;
+    color: var(--morado-oscuro);
+    font-size: 1rem;
+}
+
+.boton-perfil-miniatura{
+    background-color: var(--morado-oscuro);
+    padding: 0.6rem 1rem;
+    width: 100%;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-top:2rem;
+    margin-bottom: 2rem;
+}
+
+.col-boton-perfil{
+    border-bottom: 0.3px solid black;
+    margin-bottom: 1.3rem;
+}
+
+.enlace-desplegable{
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.enlace-desplegable-boton{
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    background-color: white;
+    border: none;
+    text-align: center;
+}
+
+.enlace-desplegable-boton:focus{
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    background-color: white;
+    border: none;
+    outline: none;
+    color: var(--morado-oscuro);
+}
+
+.span-boton-perfil-miniatura{
+    display: inline-block;
+    margin-left: 3.5rem;
+} 
+
+/* .datos-juegos-dentro-form{
+    margin: 0;
+} */
+
+.boton-integrante{
+    background-color: white;
+    display: inline-block;
+    border: 1px solid rgb(172, 172, 172);
+    margin-left: 7px;
+    margin-top: 0.1rem;
+    width: 371.1px;
+    height: 39.2px;
+}
+
+.boton-integrante:active{
+    outline-color: none;
+}
+
+.boton-integrante:focus{
+    outline: none;
+}
+
+.boton-integrante:hover{
+    background-color: var(--morado-claro);
+    cursor: pointer;
+}
+
+.seleccionado{
+     background-color: var(--morado-claro);
+     font-weight: bold;
+}
+
+#boton-guardar-datos-juegos{
+    margin-top: 10px;
+    margin-right: 2rem;
+    width: 12%;
+}
+
+.negro{
+    background-color: black;
+}
+
+.blanco{
+    background-color: white;
+}
+
+.block{
+    display: block;
+}
+
+.no-margin{
+    margin: 0;
+}
+
+.no-margin-lados{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
+.no-padding{
+    padding: 0;
+}
+
+.input-subir-img{
+    /* height: 300px; */
+    opacity: 0;
+}
+
+#img-boton-busqueda{
+    padding-left: 2rem;
+}
+
+.centrar-form-juegos{
+    padding-right: 15rem;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:active{
+    text-decoration: none;
+    color: black;
+}
+
+.boton-configuracion{
+    display: inline-block;
+    margin-left: 1px;
+}

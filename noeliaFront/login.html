@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <title>E-TEAM</title>
+    <link rel="icon" href="./img/logoEteam.PNG">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="./plugins/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="./login.js"></script>
+</head>
+<body class="container-fluid  bg-primary">
+    <div class="row h-100">
+        <div class="circulo col-6 ">
+
+                <div class=" eslogan " >
+                    LA RED SOCIAL <br> PARA LA COMUNIDAD 
+                    <p class="esloganGamer color-primary">GAMER</p>
+                </div>
+
+        </div>
+        <div class="col-1 "></div>
+        <div class="col-4 bg-white contenedorFormulario">
+            <form class="formularioInicio" action="https://localhost:8800/api/auth/login" method="post" id="formularioInicio">
+                
+                <input class="input" type="text" id="email"  name="email" placeholder="Usuario o correo">
+                <input class="input" type="password" name="password" id="password" placeholder="Contraseña">
+                <div row justify-content-center>
+                <input class="input mt-3" type="checkbox" name="recordarContraseña"><label >Recordar la contraseña</label>
+            </div>
+                <button class="boton bg-primary my-4 " id="entrar">ENTRAR</button>
+            
+            </form>
+            <div class="formularioInicio mt-0">
+                <div class="negrita  text-center">
+                <p >¿Has olvidado tu contraseña?<br>
+                <a class="color-primary  " href="https://support.google.com/accounts/answer/41078?hl=es&co=GENIE.Platform%3DAndroid">Haz click aquí</a></p>
+            </div>
+                <p class="tipografiaAbolition color-primary formarParte">¿AÚN NO FORMAS PARTE?</p>
+                <button class="boton bg-dark mt-0 " id="registrate">Registrate</button>
+
+            </div>
+
+        </div>
+        <div class="col-1"></div>
+    </div>
+</body>
+<link rel="stylesheet" href="stylesLogin.css">
+</html>
