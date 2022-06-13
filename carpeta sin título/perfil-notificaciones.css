@@ -1,0 +1,19 @@
+.false{
+    font-weight: 600;
+   
+}
+.contenedor-imagen,  .contenedor-imagen{
+    border-bottom: 2px solid darkcyan;
+    
+}
+
+.contenedor-marca{
+    opacity: 0;
+
+}
+
+.false .contenedor-marca{
+    opacity: 1;
+    color: var(--morado-oscuro);
+    font-size: 50px;
+}
