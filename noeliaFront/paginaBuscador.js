@@ -1,6 +1,21 @@
 $(document).ready(function () {
-    // iconos cabecera
-   
+    let idInicioSesion = sessionStorage.getItem('idInicioSesion');
+    let servidor = "http://localhost:8800/api/"
+    $.ajax({
+        url: servidor + 'users/' + idInicioSesion,
+        type: 'GET',
+        success: function (respuesta) {
+            //carga de datos de desplegable de configuracion del perfil
+            $("#img-desplegable-perfil").attr('src',   `data:image/png;base64,${toBase64(respuesta.datos.profileImg.img.data.data)}`)
+            $("#usuario-tablon-span-miniatura").html(respuesta.datos.username.toString());
+        }})
+
+    //funcion para convertir el buffer de las imagenes a base64
+    function toBase64(arr) {
+        return btoa(
+        arr.reduce((data, byte) => data + String.fromCharCode(byte), '')
+        );
+    }
 
     $("#icono-perfil-boton").click(function () {
         if ($(".desplegable-perfil").css("display") == "none") {
@@ -77,13 +92,14 @@ $(document).ready(function () {
 
 function pintarPeticionPosts(respuesta) {
         for (let index = 0; index < respuesta.datos.length; index++) {
-            
-            let idPost = respuesta.datos[index]._id;
+
+            let idPost = respuesta.datos[index]._id;    
+            console.log("respuesta %o",respuesta);
             $("#contenedor-post").append(`<div class="row">
-    <div class="col-md-2">
-      <img class="img-miniatura-perfil-post" src="./img/userPic.png">
+    <div class="col-md-1">
+      <img class="img-miniatura-perfil-post" id="img-miniatura-perfil-post${idPost}">
     </div>
-    <div class="col-md-10">
+    <div class="col-md-11">
       <span class="post-usuario-dato">@<span id="usuario-post-span${idPost}"></span></span><br>
       <span class="post-usuario-dato"><span id="descripcion-usuario-post-span${idPost}"></span></span><br>
       <span class="post-fecha-hora"><span id="hora-post-span${idPost}"></span></span>
@@ -136,20 +152,34 @@ function pintarPeticionPosts(respuesta) {
     </div>
     </div>
     <div class="row barraNegra">`)
-            $(`#usuario-post-span${idPost}`).html(respuesta.datos[index].owner.username.toString());
-            $(`#descripcion-usuario-post-span${idPost}`).html(respuesta.datos[index].owner.profileType.toString());
+    $.ajax({
+        url: 'http://localhost:8800/api/users/'+respuesta.datos[index].owner._id,
+        type: 'GET',
+        success: function (respuestaOwner) {
+            console.log('respuesta Imagen %o', respuestaOwner);
+            $(`#img-miniatura-perfil-post${idPost}`).attr('src', `data:image/png;base64,${toBase64(respuestaOwner.datos.profileImg.img.data.data)}`);
+            
+        },
+        error: function () {
+            console.error("No se puede");
+        }
+    });
+    
+    
+            $(`#usuario-post-span${idPost}`).html(respuesta.datos[index].owner.username);
+            $(`#descripcion-usuario-post-span${idPost}`).html(respuesta.datos[index].owner.profileType);
             $(`#hora-post-span${idPost}`).html(respuesta.datos[index].createdAt.toString());
             $(`#descripcion-post-span${idPost}`).html(respuesta.datos[index].text.toString());
             $(`#imagen-post-span${idPost}`).html(respuesta.datos[index].multimedia);
             // console.log(respuesta.datos[index].createdAt.toString());
 
         }
-        console.log(respuesta);
+        console.log("respuesta %o",respuesta);
 }
 
 function peticionPosts() {
     $.ajax({
-        url: 'https://eteamapp.herokuapp.com/api/posts',
+        url: 'http://localhost:8800/api/posts',
         type: 'GET',
         success: function (respuesta) {
 
@@ -170,10 +200,10 @@ function pintarPeticionUsers(respuesta) {
         
         let idPost = respuesta.datos[index]._id;
         $("#contenedor-post").append(`<div class="row">
-    <div class="col-md-2">
-        <img class="img-miniatura-perfil-post" src="./img/userPic.png">
+    <div class="col-md-1">
+        <img class="img-miniatura-perfil-post" id="img-miniatura-perfil-post${idPost}">
     </div>
-    <div class="col-md-10 ">
+    <div class="col-md-11 ">
         <span class="post-usuario-dato">@<span id="usuario-post-span${idPost}"></span></span><br>
         <span class="post-fecha-hora"><span id="email-span${idPost}"></span></span>
     </div>
@@ -182,6 +212,19 @@ function pintarPeticionUsers(respuesta) {
 
     </div>
     <div class="row barraNegra">`)
+    $.ajax({
+        url: 'http://localhost:8800/api/users/'+respuesta.datos[index]._id,
+
+        type: 'GET',
+        success: function (respuestaOwner) {
+            console.log('respuesta Imagen Usuario %o', respuestaOwner);
+            $(`#img-miniatura-perfil-post${idPost}`).attr('src', `data:image/png;base64,${toBase64(respuestaOwner.datos.profileImg.img.data.data)}`);
+            
+        },
+        error: function () {
+            console.error("No se puede");
+        }
+    });
         $(`#usuario-post-span${idPost}`).html(respuesta.datos[index].username.toString());
         $(`#descripcion-usuario-post-span${idPost}`).html(respuesta.datos[index].profileType.toString());
         $(`#email-span${idPost}`).html(respuesta.datos[index].email.toString());
@@ -193,7 +236,7 @@ function pintarPeticionUsers(respuesta) {
 }
 function peticionUsers() {
     $.ajax({
-        url: 'https://eteamapp.herokuapp.com/api/users',
+        url: 'http://localhost:8800/api/users',
         type: 'GET',
         success: function (respuesta) {
             pintarPeticionUsers(respuesta);
@@ -214,16 +257,16 @@ function buscarPost() {
         let valorBusqueda = document.getElementById("busqueda").value;
         console.log(valorBusqueda);
         $.ajax({
-            url: 'https://eteamapp.herokuapp.com/api/posts?buscar=' + valorBusqueda,
+            url: 'http://localhost:8800/api/posts/?buscar=' + valorBusqueda,
             type: 'GET',
             success: function (respuesta) {
                 for (let index = 0; index < respuesta.datos.length; index++) {
                     let idPost = respuesta.datos[index]._id;
                     $("#contenedor-post").append(`<div class="row">
-              <div class="col-md-2">
-                  <img class="img-miniatura-perfil-post" src="./img/userPic.png">
+              <div class="col-md-1">
+                  <img class="img-miniatura-perfil-post" id="img-miniatura-perfil-post${idPost}">
               </div>
-              <div class="col-md-10">
+              <div class="col-md-11">
                   <span class="post-usuario-dato">@<span id="usuario-post-span${idPost}"></span></span><br>
                   <span class="post-usuario-dato"><span id="descripcion-usuario-post-span${idPost}"></span></span><br>
                   <span class="post-fecha-hora"><span id="hora-post-span${idPost}"></span></span>
@@ -276,6 +319,18 @@ function buscarPost() {
               </div>
           </div>
           <div class="row barraNegra">`)
+          $.ajax({
+            url: 'http://localhost:8800/api/users/'+respuesta.datos[index].owner._id,
+            type: 'GET',
+            success: function (respuestaOwner) {
+                console.log('respuesta Imagen busqueda %o', respuestaOwner);
+                $(`#img-miniatura-perfil-post${idPost}`).attr('src', `data:image/png;base64,${toBase64(respuestaOwner.datos.profileImg.img.data.data)}`);
+                
+            },
+            error: function () {
+                console.error("No se puede");
+            }
+        });
                     $(`#usuario-post-span${idPost}`).html(respuesta.datos[index].owner.username.toString());
                     $(`#descripcion-usuario-post-span${idPost}`).html(respuesta.datos[index].owner.profileType.toString());
                     $(`#hora-post-span${idPost}`).html(respuesta.datos[index].createdAt.toString());
@@ -300,16 +355,16 @@ function buscarUser() {
         let valorBusqueda = document.getElementById("busqueda").value;
         console.log(valorBusqueda);
         $.ajax({
-            url: 'https://eteamapp.herokuapp.com/api/users?buscar=' + valorBusqueda,
+            url: 'http://localhost:8800/api/users/?buscar=' + valorBusqueda,
             type: 'GET',
             success: function (respuesta) {
                 for (let index = 0; index < respuesta.datos.length; index++) {
                     let idPost = respuesta.datos[index]._id;
                     $("#contenedor-post").append(`<div class="row">
-              <div class="col-md-2">
-                  <img class="img-miniatura-perfil-post" src="./img/userPic.png">
+              <div class="col-md-1">
+                  <img class="img-miniatura-perfil-post" id="img-miniatura-perfil-post${idPost}">
               </div>
-              <div class="col-md-10">
+              <div class="col-md-11">
                   <span class="post-usuario-dato">@<span id="usuario-post-span${idPost}"></span></span><br>   
                   <span class="post-fecha-hora"><span id="email-span${idPost}"></span></span>
               </div>
@@ -324,6 +379,19 @@ function buscarUser() {
           
           </div>
           <div class="row barraNegra">`)
+          $.ajax({
+            url: 'http://localhost:8800/api/users/'+respuesta.datos[index]._id,
+    
+            type: 'GET',
+            success: function (respuestaOwner) {
+                console.log('respuesta Imagen Usuario %o', respuestaOwner);
+                $(`#img-miniatura-perfil-post${idPost}`).attr('src', `data:image/png;base64,${toBase64(respuestaOwner.datos.profileImg.img.data.data)}`);
+                
+            },
+            error: function () {
+                console.error("No se puede");
+            }
+        });
                     $(`#usuario-post-span${idPost}`).html(respuesta.datos[index].username.toString());
                     $(`#descripcion-usuario-post-span${idPost}`).html(respuesta.datos[index].profileType.toString());
                     $(`#email-span${idPost}`).html(respuesta.datos[index].email.toString());
@@ -340,3 +408,13 @@ function buscarUser() {
 
     });
 }
+
+function toBase64(arr) {
+
+    return btoa(
+    
+    arr.reduce((data, byte) => data + String.fromCharCode(byte), '')
+    
+    );
+    
+    }

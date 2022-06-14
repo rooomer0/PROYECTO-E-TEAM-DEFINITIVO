@@ -22,22 +22,22 @@
         <div class="cabecera">
             <div class="logo-eteam"><img src="./resources/logos/eteam-logo.PNG"></div>
             <div class="busqueda-barra">
-                <input class="busqueda-texto" type="text" placeholder="Búsqueda" name="busqueda">
-                <button class="boton-icono img-sm">
+                <input class="busqueda-texto" type="text" placeholder="Búsqueda" name="busqueda" id="busqueda">
+                <button class="boton-icono img-sm boton-busqueda" id="boton-busqueda" >
                     <i class="fi fi-rr-search"></i>
                 </button>
                 </input>
             </div>
-            <a href="../E-TEAM-FRONT-ROMERO/perfil-inicio.html" class="boton-icono logo-home icono-md">
+            <a href="./../E-TEAM-FRONT-ROMERO/html/perfil-inicio.html" class="boton-icono logo-home icono-md">
                 <i class="fi fi-rr-home"></i>
             </a>
-            <a href="../noeliaFront/pagina-buscador.html" class=" boton-icono a-seleccionado logo-people icono-md">
+            <a href="./../noeliaFront/pagina-buscador.html" class=" boton-icono logo-people icono-md">
                 <i class="fi fi-rr-users"></i>
             </a>
             <button class="boton-icono logo-messages icono-md">
                 <i class="fi fi-rr-envelope"></i>
             </button>
-            <a href="../E-TEAM-FRONT-ROMERO/perfil-notificaciones.html" class="boton-icono logo-noti icono-md">
+            <a href="./../E-TEAM-FRONT-ROMERO/html/perfil-notificaciones.html" class="boton-icono logo-noti icono-md">
                 <i class="fi fi-rr-bell"></i>
             </a>
             <button id="icono-perfil-boton" class="boton-icono logo-profile icono-md">
@@ -73,6 +73,10 @@
             </div>
             
 
+
+
+
+
         </div>
         
         <div class="cuerpo-perfil row blanco ">
@@ -86,7 +90,7 @@
             <div class="col-md-12 datos-basicos-miniatura">
                 <div class="row">
                     <div class="col-md-3">
-                        <img class="img-miniatura-perfil" src="../../../Downloads/img_perfil.jpeg">
+                        <img id="img-desplegable-perfil" class="img-miniatura-perfil" >
 
                     </div>
                     <div class="col-md-9">
@@ -97,12 +101,12 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12 col-boton-perfil ">
-                        <a href="../E-TEAM-FRONT-ROMERO/perfil-tablon.html" class="boton-perfil-miniatura" type="button"><span class="span-boton-perfil-miniatura">VER EL PERFIL</span></a>
+                        <a href="./../E-TEAM-FRONT-ROMERO/html/perfil-tablon.html" class="boton-perfil-miniatura" type="button"><span class="span-boton-perfil-miniatura">VER EL PERFIL</span></a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <a href="../E-TEAM-FRONT-ROMERO/perfil-edicion.html" class="enlace-desplegable-boton">Configuración</a>
+                        <a href="./../E-TEAM-FRONT-ROMERO/html/perfil-edicion.html" class="enlace-desplegable-boton">Configuración</a>
                     </div>
                 </div>
                 <div class="row">
@@ -110,14 +114,14 @@
                         <button class="enlace-desplegable-boton">Contacto</button>
                     </div>
                 </div>
-                 <div class="row">
+                <div class="row">
                     <div class="col-md-12">
-                        <button id="iniciar-sesion" class="enlace-desplegable-boton">Iniciar sesión</button>
+                        <button class="enlace-desplegable-boton">Cerrar sesión</button>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <button class="enlace-desplegable-boton">Cerrar sesión</button>
+                        <button id="iniciar-sesion" class="enlace-desplegable-boton">Iniciar sesión</button>
                     </div>
                 </div>
             </div>
@@ -134,7 +138,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
         <script src="./src/emojibuttonlistjs.js"></script>
-        <script src="./script-perfil-edicion.js">s </script>
+        <script src="./script-perfil-edicion.js"> </script>
         <script src="./paginaBuscador.js"></script>
 
 </body>
